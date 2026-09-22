@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="blogWebsiteDBModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_fens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="text" Type="nvarchar" MaxLength="100" />
+    <Property Name="url" Type="nvarchar" MaxLength="100" />
+    <Property Name="num" Type="nvarchar" MaxLength="100" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="count" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserSex" Type="int" />
+    <Property Name="UserFansNum" Type="int" />
+    <Property Name="UserBirthday" Type="datetime" />
+    <Property Name="UserRegion" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserHeadPortrait" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserAutograph" Type="nvarchar" MaxLength="300" />
+    <Property Name="States" Type="int" />
+    <Property Name="RegisterTime" Type="datetime" />
+    <Property Name="UserYM" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserGQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserJX" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tb_fens_tb_fens">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+    <End Role="tb_fens" Type="Self.tb_fens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_fens">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="blogWebsiteDBModel2StoreContainer">
+    <EntitySet Name="tb_fens" EntityType="Self.tb_fens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_UserInfo" EntityType="Self.tb_UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_fens_tb_fens" Association="Self.FK_tb_fens_tb_fens">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_fens" EntitySet="tb_fens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

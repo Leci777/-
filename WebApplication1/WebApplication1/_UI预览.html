@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>微博项目 - 界面预览</title>
+<link rel="stylesheet" href="css/site.css" />
+<style>
+    /* 仅预览页用的排版，不影响项目本身 */
+    body { background-color: #e9ecf1; }
+    .pv-title {
+        max-width: 1000px;
+        margin: 30px auto 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        border-left: 4px solid #ff6600;
+        padding-left: 10px;
+    }
+    .pv-note { max-width: 1000px; margin: 0 auto 10px; color: #888; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h2 class="pv-title">① 登录页（logo 换透明底白色版，无白边）</h2>
+<p class="pv-note">卡片头部橙色渐变 + 白色微博 logo；背景为深蓝渐变带光斑。</p>
+<div style="max-width:1000px;margin:0 auto;">
+    <div class="auth-wrap" style="min-height:auto;border-radius:10px;padding:36px 20px;">
+        <div class="auth-layout">
+            <div class="auth-help">
+                <h3>随时随地，分享身边的新鲜事</h3>
+                <ul>
+                    <li>记录生活，遇见有趣的人</li>
+                    <li>关注话题，紧跟热点动态</li>
+                    <li>转发评论，和好友一起聊</li>
+                </ul>
+            </div>
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <img src="images/logo_white.png" alt="微博">
+                    <h1>账号登录</h1>
+                </div>
+                <div class="auth-card-body">
+                    <div class="auth-field">
+                        <label>账号<span class="req">*</span></label>
+                        <input type="text" placeholder="请输入邮箱">
+                    </div>
+                    <div class="auth-field">
+                        <label>密码<span class="req">*</span></label>
+                        <input type="password" placeholder="请输入密码">
+                    </div>
+                    <div class="auth-field">
+                        <label>验证码<span class="req">*</span></label>
+                        <div class="auth-captcha">
+                            <input type="text" placeholder="请输入验证码">
+                            <img src="Codee.ashx" alt="验证码" onerror="this.style.visibility='hidden'">
+                            <span class="change-link">换一张</span>
+                        </div>
+                    </div>
+                    <div class="auth-options">
+                        <label style="margin:0;"><input type="checkbox" checked> 下次自动登录</label>
+                        <a href="#">忘记密码？</a>
+                    </div>
+                    <button class="auth-submit">登 录</button>
+                    <div class="auth-footer">还没有账号？<a href="#">立即注册 &gt;&gt;</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="pv-title">② 游客首页（内容来自数据库，图文已对应）</h2>
+<p class="pv-note">轮播图的图片与底部配文一起切换；信息流卡片的配图与文字一一对应。</p>
+<div class="all" style="background-color:transparent;">
+    <div class="boy1">
+        <div class="boy_z1" style="margin-top:10px;">
+            <div class="boy_left1">
+                <ul class="ul2">
+                    <li><a href="#" class="active">全部</a></li>
+                    <li><a href="#">热门</a></li>
+                    <li><a href="#">头条</a></li>
+                    <li><a href="#">视频</a></li>
+                    <li><a href="#">榜单</a></li>
+                    <li><a href="#">搞笑</a></li>
+                    <li><a href="#">社会</a></li>
+                    <li><a href="#">时尚</a></li>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">体育</a></li>
+                    <li><a href="#">动漫</a></li>
+                </ul>
+            </div>
+
+            <div class="boy_cent1">
+                <div class="box">
+                    <div class="imgBox">
+                        <a class="banner-item" href="#">
+                            <img src="images/1.4.jpg" alt="">
+                            <span class="banner-cap">勇士对灰熊这场太精彩了，最后三分钟连续得分完成逆转，全程不敢眨眼。</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="feed-head">全部微博</div>
+
+                <!-- 手机图 + 手机文字 -->
+                <a href="#">
+                    <dl class="news-time1">
+                        <dt class="news-time-img1"><img src="images/wb_64.jpg" alt=""></dt>
+                        <dd class="news-time-text1">
+                            <h3 class="news-time-title1">新出的这款手机拍照确实强，夜景模式随手拍都清楚。</h3>
+                            <div class="nc-meta">
+                                <img class="nc-avatar" src="images/头像9.jpg" alt="">
+                                <span class="nc-name">数码小哥</span>
+                                <span class="nc-cat">头条</span>
+                                <span class="nc-time">05-09 19:40</span>
+                                <span class="nc-zan">赞 321</span>
+                            </div>
+                        </dd>
+                    </dl>
+                </a>
+
+                <!-- 猫图 + 猫文字 -->
+                <a href="#">
+                    <dl class="news-time1">
+                        <dt class="news-time-img1"><img src="images/wb_63.jpg" alt=""></dt>
+                        <dd class="news-time-text1">
+                            <h3 class="news-time-title1">我家猫今天把我的拖鞋藏进了猫砂盆，我找了半小时。</h3>
+                            <div class="nc-meta">
+                                <img class="nc-avatar" src="images/头像8.jpg" alt="">
+                                <span class="nc-name">猫奴日记</span>
+                                <span class="nc-cat">搞笑</span>
+                                <span class="nc-time">05-09 20:30</span>
+                                <span class="nc-zan">赞 456</span>
+                            </div>
+                        </dd>
+                    </dl>
+                </a>
+
+                <!-- 咖啡图 + 咖啡文字 -->
+                <a href="#">
+                    <dl class="news-time1">
+                        <dt class="news-time-img1"><img src="images/wb_75.jpg" alt=""></dt>
+                        <dd class="news-time-text1">
+                            <h3 class="news-time-title1">朋友推荐的这家咖啡店，拿铁做得很用心。</h3>
+                            <div class="nc-meta">
+                                <img class="nc-avatar" src="images/头像8.jpg" alt="">
+                                <span class="nc-name">猫奴日记</span>
+                                <span class="nc-cat">头条</span>
+                                <span class="nc-time">05-08 16:20</span>
+                                <span class="nc-zan">赞 256</span>
+                            </div>
+                        </dd>
+                    </dl>
+                </a>
+            </div>
+
+            <div class="boy-right">
+                <h3>微博热搜</h3>
+                <ul>
+                    <li><a href="#"><span class="zz">1.</span>以药灵业考莲花清温9个.... 285万</a></li>
+                    <li><a href="#"><span class="zz">2.</span>且试天下....112.2万</a></li>
+                    <li><a href="#"><span class="zz">3.</span>中国空间站实力诠释未来....110.5万</a></li>
+                    <li><a href="#"><span class="zz">4.</span>何炅在历届快男见证过....110.4万</a></li>
+                    <li><a href="#"><span class="zz">5.</span>五一调休....110.2万</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="pv-title">③ 微博精选页（按点赞榜）</h2>
+<p class="pv-note">导航「微博精选」进入，按点赞数展示 Top10，前三名序号高亮。</p>
+<div class="jx-page" style="margin-top:10px;">
+    <div class="jx-head">
+        <h2>微博精选</h2>
+        <p>根据点赞数为你精选的高人气微博，实时更新</p>
+    </div>
+    <div class="jx-list">
+        <a href="#">
+            <dl class="news-time1">
+                <span class="jx-rank jx-rank-top">1</span>
+                <dt class="news-time-img1"><img src="images/1.1.jpg" alt=""></dt>
+                <dd class="news-time-text1">
+                    <h3 class="news-time-title1">莫兰特这场真的拼，膝盖受了伤还在坚持，希望没有大碍。</h3>
+                    <div class="nc-meta">
+                        <img class="nc-avatar" src="images/头像5.jpg" alt="">
+                        <span class="nc-name">体育迷阿强</span>
+                        <span class="nc-cat">体育</span>
+                        <span class="nc-time">05-08 11:40</span>
+                        <span class="nc-zan">赞 1530</span>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+        <a href="#">
+            <dl class="news-time1">
+                <span class="jx-rank jx-rank-top">2</span>
+                <dt class="news-time-img1"><img src="images/1.7.jpg" alt=""></dt>
+                <dd class="news-time-text1">
+                    <h3 class="news-time-title1">母亲节给妈妈准备了小惊喜，她拆开礼物时笑得像个孩子。</h3>
+                    <div class="nc-meta">
+                        <img class="nc-avatar" src="images/头像6.jpg" alt="">
+                        <span class="nc-name">电影杂货铺</span>
+                        <span class="nc-cat">热门</span>
+                        <span class="nc-time">05-08 15:20</span>
+                        <span class="nc-zan">赞 1205</span>
+                    </div>
+                </dd>
+            </dl>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

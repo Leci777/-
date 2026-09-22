@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="blogWebsiteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentatorUserID" Type="int" Nullable="false" />
+          <Property Name="BeCommentatorUserID" Type="int" Nullable="false" />
+          <Property Name="Content_text" Type="nvarchar" MaxLength="200" />
+          <Property Name="Content_img" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content_video" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content_ sound" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommentTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_fens">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" />
+          <Property Name="url" Type="nvarchar" MaxLength="100" />
+          <Property Name="num" Type="nvarchar" MaxLength="100" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="count" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tb_GoodFriend">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MyUserID" Type="int" />
+          <Property Name="FollowUserID" Type="int" />
+          <Property Name="FansUserID" Type="int" />
+          <Property Name="FriendRemarks" Type="nvarchar" MaxLength="100" />
+          <Property Name="Establish" Type="datetime" />
+          <Property Name="AitemeUserID" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_Grouping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FriendUserID" Type="int" />
+          <Property Name="MyUserID" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_MicroBlog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content_text" Type="nvarchar" MaxLength="600" />
+          <Property Name="Content_img" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content_video" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content_ sound" Type="nvarchar" MaxLength="500" />
+          <Property Name="Points_number" Type="int" />
+          <Property Name="Place" Type="nvarchar" MaxLength="200" />
+          <Property Name="Cansee_states" Type="int" />
+          <Property Name="ReleaseTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_Pinglun">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Neirong" Type="nvarchar" MaxLength="150" />
+          <Property Name="BlogID" Type="int" Nullable="false" />
+          <Property Name="PLTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_Search">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="datime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserSex" Type="int" />
+          <Property Name="UserFansNum" Type="int" />
+          <Property Name="UserBirthday" Type="datetime" />
+          <Property Name="UserRegion" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserHeadPortrait" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserAutograph" Type="nvarchar" MaxLength="300" />
+          <Property Name="States" Type="int" />
+          <Property Name="RegisterTime" Type="datetime" />
+          <Property Name="UserYM" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserGQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserJX" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tb_fens_tb_fens">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_fens" Type="Self.tb_fens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_fens">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GoodFriend_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="0..1" />
+          <End Role="tb_GoodFriend" Type="Self.tb_GoodFriend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_GoodFriend">
+              <PropertyRef Name="MyUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_MicroBlog_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_MicroBlog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Pinglun_tb_MicroBlog">
+          <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="1" />
+          <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_MicroBlog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Pinglun">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Pinglun_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Pinglun">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="blogWebsiteDBModelStoreContainer">
+          <EntitySet Name="tb_Comment" EntityType="Self.tb_Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_fens" EntityType="Self.tb_fens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_GoodFriend" EntityType="Self.tb_GoodFriend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Grouping" EntityType="Self.tb_Grouping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_MicroBlog" EntityType="Self.tb_MicroBlog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Pinglun" EntityType="Self.tb_Pinglun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Search" EntityType="Self.tb_Search" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_UserInfo" EntityType="Self.tb_UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_fens_tb_fens" Association="Self.FK_tb_fens_tb_fens">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_fens" EntitySet="tb_fens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GoodFriend_tb_UserInfo" Association="Self.FK_tb_GoodFriend_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_GoodFriend" EntitySet="tb_GoodFriend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_MicroBlog_tb_UserInfo" Association="Self.FK_tb_MicroBlog_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Pinglun_tb_MicroBlog" Association="Self.FK_tb_Pinglun_tb_MicroBlog">
+            <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+            <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Pinglun_tb_UserInfo" Association="Self.FK_tb_Pinglun_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="blogWebsiteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentatorUserID" Type="Int32" Nullable="false" />
+          <Property Name="BeCommentatorUserID" Type="Int32" Nullable="false" />
+          <Property Name="Content_text" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Content_img" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content_video" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content__sound" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommentTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_fens">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="count" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_UserInfo" Relationship="Self.FK_tb_fens_tb_fens" FromRole="tb_fens" ToRole="tb_UserInfo" />
+        </EntityType>
+        <EntityType Name="tb_GoodFriend">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MyUserID" Type="Int32" />
+          <Property Name="FollowUserID" Type="Int32" />
+          <Property Name="FansUserID" Type="Int32" />
+          <Property Name="FriendRemarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Establish" Type="DateTime" Precision="3" />
+          <Property Name="AitemeUserID" Type="Int32" />
+          <NavigationProperty Name="tb_UserInfo" Relationship="Self.FK_tb_GoodFriend_tb_UserInfo" FromRole="tb_GoodFriend" ToRole="tb_UserInfo" />
+        </EntityType>
+        <EntityType Name="tb_Grouping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FriendUserID" Type="Int32" />
+          <Property Name="MyUserID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_MicroBlog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Content_text" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Content_img" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content_video" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content__sound" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Points_number" Type="Int32" />
+          <Property Name="Place" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Cansee_states" Type="Int32" />
+          <Property Name="ReleaseTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_UserInfo" Relationship="Self.FK_tb_MicroBlog_tb_UserInfo" FromRole="tb_MicroBlog" ToRole="tb_UserInfo" />
+          <NavigationProperty Name="tb_Pinglun" Relationship="Self.FK_tb_Pinglun_tb_MicroBlog" FromRole="tb_MicroBlog" ToRole="tb_Pinglun" />
+        </EntityType>
+        <EntityType Name="tb_Pinglun">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Neirong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BlogID" Type="Int32" Nullable="false" />
+          <Property Name="PLTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tb_MicroBlog" Relationship="Self.FK_tb_Pinglun_tb_MicroBlog" FromRole="tb_Pinglun" ToRole="tb_MicroBlog" />
+          <NavigationProperty Name="tb_UserInfo" Relationship="Self.FK_tb_Pinglun_tb_UserInfo" FromRole="tb_Pinglun" ToRole="tb_UserInfo" />
+        </EntityType>
+        <EntityType Name="tb_Search">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="datime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="tb_UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserSex" Type="Int32" />
+          <Property Name="UserFansNum" Type="Int32" />
+          <Property Name="UserBirthday" Type="DateTime" Precision="3" />
+          <Property Name="UserRegion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserHeadPortrait" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserAutograph" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="States" Type="Int32" />
+          <Property Name="RegisterTime" Type="DateTime" Precision="3" />
+          <Property Name="UserYM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserGQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserJX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_fens" Relationship="Self.FK_tb_fens_tb_fens" FromRole="tb_UserInfo" ToRole="tb_fens" />
+          <NavigationProperty Name="tb_GoodFriend" Relationship="Self.FK_tb_GoodFriend_tb_UserInfo" FromRole="tb_UserInfo" ToRole="tb_GoodFriend" />
+          <NavigationProperty Name="tb_MicroBlog" Relationship="Self.FK_tb_MicroBlog_tb_UserInfo" FromRole="tb_UserInfo" ToRole="tb_MicroBlog" />
+          <NavigationProperty Name="tb_Pinglun" Relationship="Self.FK_tb_Pinglun_tb_UserInfo" FromRole="tb_UserInfo" ToRole="tb_Pinglun" />
+        </EntityType>
+        <Association Name="FK_tb_fens_tb_fens">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_fens" Type="Self.tb_fens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_fens">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GoodFriend_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="0..1" />
+          <End Role="tb_GoodFriend" Type="Self.tb_GoodFriend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_GoodFriend">
+              <PropertyRef Name="MyUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_MicroBlog_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_MicroBlog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Pinglun_tb_MicroBlog">
+          <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="1" />
+          <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_MicroBlog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Pinglun">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Pinglun_tb_UserInfo">
+          <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+          <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Pinglun">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="blogWebsiteDBEntities7" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_Comment" EntityType="Self.tb_Comment" />
+          <EntitySet Name="tb_fens" EntityType="Self.tb_fens" />
+          <EntitySet Name="tb_GoodFriend" EntityType="Self.tb_GoodFriend" />
+          <EntitySet Name="tb_Grouping" EntityType="Self.tb_Grouping" />
+          <EntitySet Name="tb_MicroBlog" EntityType="Self.tb_MicroBlog" />
+          <EntitySet Name="tb_Pinglun" EntityType="Self.tb_Pinglun" />
+          <EntitySet Name="tb_Search" EntityType="Self.tb_Search" />
+          <EntitySet Name="tb_UserInfo" EntityType="Self.tb_UserInfo" />
+          <AssociationSet Name="FK_tb_fens_tb_fens" Association="Self.FK_tb_fens_tb_fens">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_fens" EntitySet="tb_fens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GoodFriend_tb_UserInfo" Association="Self.FK_tb_GoodFriend_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_GoodFriend" EntitySet="tb_GoodFriend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_MicroBlog_tb_UserInfo" Association="Self.FK_tb_MicroBlog_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Pinglun_tb_MicroBlog" Association="Self.FK_tb_Pinglun_tb_MicroBlog">
+            <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+            <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Pinglun_tb_UserInfo" Association="Self.FK_tb_Pinglun_tb_UserInfo">
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+            <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="blogWebsiteDBModelStoreContainer" CdmEntityContainer="blogWebsiteDBEntities7">
+          <EntitySetMapping Name="tb_Comment">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Comment">
+              <MappingFragment StoreEntitySet="tb_Comment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CommentatorUserID" ColumnName="CommentatorUserID" />
+                <ScalarProperty Name="BeCommentatorUserID" ColumnName="BeCommentatorUserID" />
+                <ScalarProperty Name="Content_text" ColumnName="Content_text" />
+                <ScalarProperty Name="Content_img" ColumnName="Content_img" />
+                <ScalarProperty Name="Content_video" ColumnName="Content_video" />
+                <ScalarProperty Name="Content__sound" ColumnName="Content_ sound" />
+                <ScalarProperty Name="CommentTime" ColumnName="CommentTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_fens">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_fens">
+              <MappingFragment StoreEntitySet="tb_fens">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_GoodFriend">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_GoodFriend">
+              <MappingFragment StoreEntitySet="tb_GoodFriend">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+                <ScalarProperty Name="FollowUserID" ColumnName="FollowUserID" />
+                <ScalarProperty Name="FansUserID" ColumnName="FansUserID" />
+                <ScalarProperty Name="FriendRemarks" ColumnName="FriendRemarks" />
+                <ScalarProperty Name="Establish" ColumnName="Establish" />
+                <ScalarProperty Name="AitemeUserID" ColumnName="AitemeUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Grouping">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Grouping">
+              <MappingFragment StoreEntitySet="tb_Grouping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="FriendUserID" ColumnName="FriendUserID" />
+                <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_MicroBlog">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_MicroBlog">
+              <MappingFragment StoreEntitySet="tb_MicroBlog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content_text" ColumnName="Content_text" />
+                <ScalarProperty Name="Content_img" ColumnName="Content_img" />
+                <ScalarProperty Name="Content_video" ColumnName="Content_video" />
+                <ScalarProperty Name="Content__sound" ColumnName="Content_ sound" />
+                <ScalarProperty Name="Points_number" ColumnName="Points_number" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Cansee_states" ColumnName="Cansee_states" />
+                <ScalarProperty Name="ReleaseTime" ColumnName="ReleaseTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Pinglun">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Pinglun">
+              <MappingFragment StoreEntitySet="tb_Pinglun">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Neirong" ColumnName="Neirong" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="PLTime" ColumnName="PLTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Search">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Search">
+              <MappingFragment StoreEntitySet="tb_Search">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="datime" ColumnName="datime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_UserInfo">
+            <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_UserInfo">
+              <MappingFragment StoreEntitySet="tb_UserInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+                <ScalarProperty Name="UserFansNum" ColumnName="UserFansNum" />
+                <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+                <ScalarProperty Name="UserRegion" ColumnName="UserRegion" />
+                <ScalarProperty Name="UserHeadPortrait" ColumnName="UserHeadPortrait" />
+                <ScalarProperty Name="UserAutograph" ColumnName="UserAutograph" />
+                <ScalarProperty Name="States" ColumnName="States" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="UserYM" ColumnName="UserYM" />
+                <ScalarProperty Name="UserGQ" ColumnName="UserGQ" />
+                <ScalarProperty Name="UserJX" ColumnName="UserJX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

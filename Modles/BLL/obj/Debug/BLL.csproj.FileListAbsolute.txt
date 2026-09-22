@@ -1,0 +1,11 @@
+E:\软件\桌面\目\Modles\BLL\bin\Debug\BLL.dll
+E:\软件\桌面\目\Modles\BLL\bin\Debug\BLL.pdb
+E:\软件\桌面\目\Modles\BLL\bin\Debug\DAL.dll
+E:\软件\桌面\目\Modles\BLL\bin\Debug\Modles.dll
+E:\软件\桌面\目\Modles\BLL\bin\Debug\DAL.pdb
+E:\软件\桌面\目\Modles\BLL\bin\Debug\Modles.pdb
+E:\软件\桌面\目\Modles\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\软件\桌面\目\Modles\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\软件\桌面\目\Modles\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\软件\桌面\目\Modles\BLL\obj\Debug\BLL.dll
+E:\软件\桌面\目\Modles\BLL\obj\Debug\BLL.pdb

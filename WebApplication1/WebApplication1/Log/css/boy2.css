@@ -1,0 +1,125 @@
+.boy{
+    background-color: #f4f4f4;
+}
+.boy-z{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 20px;
+}
+.boy-left{
+    width: 15%;
+    background-color: white;
+    margin-top: 10px;
+}
+.boy-left ul li a:hover{
+    color: orange;
+}
+.boy-left ul li {
+    padding: 10px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+}
+.boy-cent{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+.boy-cent-s{
+    width: 100%;
+    background-color: white;
+}
+.boy-cent-s img{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.tt{
+    width: 80%;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: 1px solid #f4f4f4;
+    background-color: #f4f4f4;
+    height: 50px;
+    border-radius: 10px 10px 10px 10px ;
+}
+.butt{
+    margin-top: 10px;
+    background-color: gold;
+    width: 60px;
+    height: 20px;
+    border-radius: 7px 7px 7px 7px;
+    margin-left: 500px;
+}
+.boy-cent-s2{
+    width: 100%;
+  
+    background-color: white;
+    margin-top: 10px;
+    height: 80px;
+}
+.boy-cent-s3{
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+}
+.boy-cent-s3 a:hover{
+    color: red;
+}
+.boy-cent-s4{
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+   
+}
+
+.boy-cent-s3 ul{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.boy-cent-s3 ul li{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+}
+.boy-right{
+    width: 30%;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.boy-right h3{
+    margin-top: 10px;
+}
+.boy-right ul li{
+    padding: 15px;
+}
+.zz{
+    font-size: 1.4em;
+   font-weight: bold;
+    color: tomato;
+   
+}
+.z{
+    font-size: 1.3em;
+   font-weight: bold;
+    color: orange;
+}
+.boy-right ul li a{
+    font-size: 0.8em;
+   
+}

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="blogWebsiteDBModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_fens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="count" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_UserInfo" Relationship="Self.FK_tb_fens_tb_fens" FromRole="tb_fens" ToRole="tb_UserInfo" />
+  </EntityType>
+  <EntityType Name="tb_UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserSex" Type="Int32" />
+    <Property Name="UserFansNum" Type="Int32" />
+    <Property Name="UserBirthday" Type="DateTime" Precision="3" />
+    <Property Name="UserRegion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserHeadPortrait" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserAutograph" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="States" Type="Int32" />
+    <Property Name="RegisterTime" Type="DateTime" Precision="3" />
+    <Property Name="UserYM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserGQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserJX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_fens" Relationship="Self.FK_tb_fens_tb_fens" FromRole="tb_UserInfo" ToRole="tb_fens" />
+  </EntityType>
+  <Association Name="FK_tb_fens_tb_fens">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+    <End Role="tb_fens" Type="Self.tb_fens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_fens">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="blogWebsiteDBEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_fens" EntityType="Self.tb_fens" />
+    <EntitySet Name="tb_UserInfo" EntityType="Self.tb_UserInfo" />
+    <AssociationSet Name="FK_tb_fens_tb_fens" Association="Self.FK_tb_fens_tb_fens">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_fens" EntitySet="tb_fens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

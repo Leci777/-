@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NewAll.master.cs" Inherits="WebApplication1.NewAll" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="css/total.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/zhuce.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/k.css">
+    <link rel="stylesheet" href="css/boy2.css">
+    <link rel="stylesheet" href="css/Default.css">
+    <link rel="stylesheet" href="css/fans.css">
+    <link rel="stylesheet" href="css/css.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <div class="nav">
+                <div class="null"></div>
+                <ul class="nav-left">
+                    <img src="images/logo.png" alt="" class="logo-image">
+                    <input type="text" class="left-input" placeholder="大家正在搜：宋亚轩中戏表演专业全国第十一">
+                </ul>
+                <div class="null"></div>
+                <ul class="nav-center">
+                    <li class="center-item"><a href="Index.aspx" class="center-item_link">我的首页</a></li>
+                    <li class="center-item"><a href="Personnel.aspx" class="center-item_link">个人主页</a></li>
+                    <li class="center-item"><a href="SetUp.aspx" class="center-item_link">设置</a></li>
+                    <li>|</li>
+                    <li class="center-item"><a href="#" class="center-item_link">微博精选</a></li>
+                    <li class="center-item"><a href="#" class="center-item_link">发现</a></li>
+                    <li>|</li>
+                    <li class="center-item"><span class="right-span"><a href="register.aspx" class="center-item_link">注册</a></span></li>
+                    <li>|</li>
+                    <li class="center-item"><span class="right-two"><a href="Login.aspx" class="center-item_link">登录</a></span></li>
+                </ul>
+                <div class="null"></div>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <script type="text/javascript">
+            var index = 0;
+            //效果
+            function ChangeImg() {
+                index++;
+                var a = document.getElementsByClassName("img-slide");
+                if (index >= a.length) index = 0;
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.display = 'none';
+                }
+                a[index].style.display = 'block';
+            }
+            //设置定时器，每隔两秒切换一张图片
+            setInterval(ChangeImg, 3000);
+        </script>
+    </form>
+</body>
+</html>

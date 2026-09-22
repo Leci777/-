@@ -1,0 +1,9 @@
+E:\软件\桌面\目\Modles\DAL\bin\Debug\DAL.dll
+E:\软件\桌面\目\Modles\DAL\bin\Debug\DAL.pdb
+E:\软件\桌面\目\Modles\DAL\bin\Debug\Modles.dll
+E:\软件\桌面\目\Modles\DAL\bin\Debug\Modles.pdb
+E:\软件\桌面\目\Modles\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\软件\桌面\目\Modles\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\软件\桌面\目\Modles\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\软件\桌面\目\Modles\DAL\obj\Debug\DAL.dll
+E:\软件\桌面\目\Modles\DAL\obj\Debug\DAL.pdb

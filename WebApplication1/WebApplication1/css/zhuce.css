@@ -1,0 +1,59 @@
+.shezhi_ul{
+    height: 100%;
+    line-height: 50px;
+}
+.shezhi{
+    font-size: 2.2em;
+}
+.set-one{
+    padding: 20px;
+    width: 200px;
+    float: left;
+    background-color: white;
+}
+.li-txt{
+    border-radius: 7px;
+    background-color: rgb(209, 209, 209);
+    width: 560px;
+    height: 30px;
+    border: 0px;
+}
+.zhanghao_li{
+    margin-top: 40px;
+}
+.zhanghao_img{
+    height: 150px;
+    text-align: center;
+}
+.zhanghao_img img{
+    border-radius: 50%;
+}
+.set-two{
+    margin-left: 20px;
+    background-color: white;
+    width: 699px;
+    padding: 20px;
+}
+.geren{
+    margin-top: 60px;
+}
+.one_li:hover{
+    color: tomato;
+}
+.three{
+    margin-left: 20px;
+    background-color: white;
+    width: 200px;
+    padding: 20px;
+}
+.three_xingqu{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    margin-left: 20px;
+}
+.three_rs{
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px;
+}

@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="blogWebsiteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentatorUserID" Type="int" Nullable="false" />
+    <Property Name="BeCommentatorUserID" Type="int" Nullable="false" />
+    <Property Name="Content_text" Type="nvarchar" MaxLength="200" />
+    <Property Name="Content_img" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content_video" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content_ sound" Type="nvarchar" MaxLength="500" />
+    <Property Name="CommentTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_fens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="text" Type="nvarchar" MaxLength="100" />
+    <Property Name="url" Type="nvarchar" MaxLength="100" />
+    <Property Name="num" Type="nvarchar" MaxLength="100" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="count" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_GoodFriend">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MyUserID" Type="int" />
+    <Property Name="FollowUserID" Type="int" />
+    <Property Name="FansUserID" Type="int" />
+    <Property Name="FriendRemarks" Type="nvarchar" MaxLength="100" />
+    <Property Name="Establish" Type="datetime" />
+    <Property Name="AitemeUserID" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_Grouping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FriendUserID" Type="int" />
+    <Property Name="MyUserID" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_MicroBlog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Content_text" Type="nvarchar" MaxLength="600" />
+    <Property Name="Content_img" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content_video" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content_ sound" Type="nvarchar" MaxLength="500" />
+    <Property Name="Points_number" Type="int" />
+    <Property Name="Place" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cansee_states" Type="int" />
+    <Property Name="ReleaseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_Pinglun">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Neirong" Type="nvarchar" MaxLength="150" />
+    <Property Name="BlogID" Type="int" Nullable="false" />
+    <Property Name="PLTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Search">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="datime" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserSex" Type="int" />
+    <Property Name="UserFansNum" Type="int" />
+    <Property Name="UserBirthday" Type="datetime" />
+    <Property Name="UserRegion" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserHeadPortrait" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserAutograph" Type="nvarchar" MaxLength="300" />
+    <Property Name="States" Type="int" />
+    <Property Name="RegisterTime" Type="datetime" />
+    <Property Name="UserYM" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserGQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserJX" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tb_fens_tb_fens">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+    <End Role="tb_fens" Type="Self.tb_fens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_fens">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_GoodFriend_tb_UserInfo">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="0..1" />
+    <End Role="tb_GoodFriend" Type="Self.tb_GoodFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_GoodFriend">
+        <PropertyRef Name="MyUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_MicroBlog_tb_UserInfo">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+    <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_MicroBlog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Pinglun_tb_MicroBlog">
+    <End Role="tb_MicroBlog" Type="Self.tb_MicroBlog" Multiplicity="1" />
+    <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_MicroBlog">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_Pinglun">
+        <PropertyRef Name="BlogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Pinglun_tb_UserInfo">
+    <End Role="tb_UserInfo" Type="Self.tb_UserInfo" Multiplicity="1" />
+    <End Role="tb_Pinglun" Type="Self.tb_Pinglun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_UserInfo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_Pinglun">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="blogWebsiteDBModelStoreContainer">
+    <EntitySet Name="tb_Comment" EntityType="Self.tb_Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_fens" EntityType="Self.tb_fens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_GoodFriend" EntityType="Self.tb_GoodFriend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Grouping" EntityType="Self.tb_Grouping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_MicroBlog" EntityType="Self.tb_MicroBlog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Pinglun" EntityType="Self.tb_Pinglun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Search" EntityType="Self.tb_Search" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_UserInfo" EntityType="Self.tb_UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_fens_tb_fens" Association="Self.FK_tb_fens_tb_fens">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_fens" EntitySet="tb_fens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_GoodFriend_tb_UserInfo" Association="Self.FK_tb_GoodFriend_tb_UserInfo">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_GoodFriend" EntitySet="tb_GoodFriend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_MicroBlog_tb_UserInfo" Association="Self.FK_tb_MicroBlog_tb_UserInfo">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Pinglun_tb_MicroBlog" Association="Self.FK_tb_Pinglun_tb_MicroBlog">
+      <End Role="tb_MicroBlog" EntitySet="tb_MicroBlog" />
+      <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Pinglun_tb_UserInfo" Association="Self.FK_tb_Pinglun_tb_UserInfo">
+      <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+      <End Role="tb_Pinglun" EntitySet="tb_Pinglun" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

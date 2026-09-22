@@ -1,0 +1,6 @@
+E:\软件\桌面\目\Modles\Modles\bin\Debug\Modles.dll
+E:\软件\桌面\目\Modles\Modles\bin\Debug\Modles.pdb
+E:\软件\桌面\目\Modles\Modles\obj\Debug\Modles.csprojAssemblyReference.cache
+E:\软件\桌面\目\Modles\Modles\obj\Debug\Modles.csproj.CoreCompileInputs.cache
+E:\软件\桌面\目\Modles\Modles\obj\Debug\Modles.dll
+E:\软件\桌面\目\Modles\Modles\obj\Debug\Modles.pdb

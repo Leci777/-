@@ -1,0 +1,39 @@
+﻿.news-time {
+    background-color: #e1e1e1e1;
+   margin-top:10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.news-time-title {
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.news-time-text {
+    padding: 4px;
+}
+
+.news-time-img {
+    float: left;
+    width: 200px;
+    height: 120px;
+    margin-right: 10px;
+    animation-iteration-count: infinite;
+}
+.news-time-img img{
+  width:100%;
+}  
+.h{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    background-color:cornflowerblue;
+    text-align:right;
+}
+.h li a{
+    color:white;
+}
+.fwb{
+    border-radius:20px;
+}

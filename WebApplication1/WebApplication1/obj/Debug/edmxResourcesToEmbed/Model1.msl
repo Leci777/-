@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="blogWebsiteDBModelStoreContainer" CdmEntityContainer="blogWebsiteDBEntities7">
+    <EntitySetMapping Name="tb_Comment">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Comment">
+        <MappingFragment StoreEntitySet="tb_Comment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CommentatorUserID" ColumnName="CommentatorUserID" />
+          <ScalarProperty Name="BeCommentatorUserID" ColumnName="BeCommentatorUserID" />
+          <ScalarProperty Name="Content_text" ColumnName="Content_text" />
+          <ScalarProperty Name="Content_img" ColumnName="Content_img" />
+          <ScalarProperty Name="Content_video" ColumnName="Content_video" />
+          <ScalarProperty Name="Content__sound" ColumnName="Content_ sound" />
+          <ScalarProperty Name="CommentTime" ColumnName="CommentTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_fens">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_fens">
+        <MappingFragment StoreEntitySet="tb_fens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_GoodFriend">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_GoodFriend">
+        <MappingFragment StoreEntitySet="tb_GoodFriend">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+          <ScalarProperty Name="FollowUserID" ColumnName="FollowUserID" />
+          <ScalarProperty Name="FansUserID" ColumnName="FansUserID" />
+          <ScalarProperty Name="FriendRemarks" ColumnName="FriendRemarks" />
+          <ScalarProperty Name="Establish" ColumnName="Establish" />
+          <ScalarProperty Name="AitemeUserID" ColumnName="AitemeUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Grouping">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Grouping">
+        <MappingFragment StoreEntitySet="tb_Grouping">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="FriendUserID" ColumnName="FriendUserID" />
+          <ScalarProperty Name="MyUserID" ColumnName="MyUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_MicroBlog">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_MicroBlog">
+        <MappingFragment StoreEntitySet="tb_MicroBlog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content_text" ColumnName="Content_text" />
+          <ScalarProperty Name="Content_img" ColumnName="Content_img" />
+          <ScalarProperty Name="Content_video" ColumnName="Content_video" />
+          <ScalarProperty Name="Content__sound" ColumnName="Content_ sound" />
+          <ScalarProperty Name="Points_number" ColumnName="Points_number" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Cansee_states" ColumnName="Cansee_states" />
+          <ScalarProperty Name="ReleaseTime" ColumnName="ReleaseTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Pinglun">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Pinglun">
+        <MappingFragment StoreEntitySet="tb_Pinglun">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Neirong" ColumnName="Neirong" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="PLTime" ColumnName="PLTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Search">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_Search">
+        <MappingFragment StoreEntitySet="tb_Search">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="datime" ColumnName="datime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_UserInfo">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel.tb_UserInfo">
+        <MappingFragment StoreEntitySet="tb_UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+          <ScalarProperty Name="UserFansNum" ColumnName="UserFansNum" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserRegion" ColumnName="UserRegion" />
+          <ScalarProperty Name="UserHeadPortrait" ColumnName="UserHeadPortrait" />
+          <ScalarProperty Name="UserAutograph" ColumnName="UserAutograph" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+          <ScalarProperty Name="UserYM" ColumnName="UserYM" />
+          <ScalarProperty Name="UserGQ" ColumnName="UserGQ" />
+          <ScalarProperty Name="UserJX" ColumnName="UserJX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

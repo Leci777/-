@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="blogWebsiteDBModel2StoreContainer" CdmEntityContainer="blogWebsiteDBEntities6">
+    <EntitySetMapping Name="tb_fens">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel2.tb_fens">
+        <MappingFragment StoreEntitySet="tb_fens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_UserInfo">
+      <EntityTypeMapping TypeName="blogWebsiteDBModel2.tb_UserInfo">
+        <MappingFragment StoreEntitySet="tb_UserInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+          <ScalarProperty Name="UserFansNum" ColumnName="UserFansNum" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserRegion" ColumnName="UserRegion" />
+          <ScalarProperty Name="UserHeadPortrait" ColumnName="UserHeadPortrait" />
+          <ScalarProperty Name="UserAutograph" ColumnName="UserAutograph" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+          <ScalarProperty Name="UserYM" ColumnName="UserYM" />
+          <ScalarProperty Name="UserGQ" ColumnName="UserGQ" />
+          <ScalarProperty Name="UserJX" ColumnName="UserJX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

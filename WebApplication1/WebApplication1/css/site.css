@@ -1,0 +1,1230 @@
+/* ============================================================
+ *  site.css  ——  微博项目统一主题样式
+ *  说明：把原来散落在 total/header/layout/k/boy2/zhuce/css 等
+ *        多个文件里的通用样式合并到这一份，方便统一维护。
+ *  配色：以新浪微博的橙色为主色，搭配中性灰，整体偏简洁清爽。
+ * ============================================================ */
+
+/* ---------- 1. 基础重置（原 total.css） ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f5f6f7;
+    line-height: 1.6;
+}
+
+ul, ol, li { list-style: none; }
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color .2s ease;
+}
+
+a:hover { color: #ff6600; }
+
+img { border: 0; vertical-align: middle; }
+
+/* 清除浮动通用工具 */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ---------- 2. 主题色变量（方便后续统一改色） ---------- */
+:root {
+    --wb-orange: #ff6600;        /* 主色：微博橙 */
+    --wb-orange-light: #ff8c1a;  /* 悬停亮橙 */
+    --wb-orange-dark: #e55a00;   /* 按下深橙 */
+    --wb-blue: #3c8dbc;          /* 辅助蓝 */
+    --wb-text: #333;             /* 正文 */
+    --wb-text-gray: #969696;     /* 次要文字 */
+    --wb-bg: #f5f6f7;            /* 页面底色 */
+    --wb-card: #ffffff;          /* 卡片底色 */
+    --wb-border: #e6e6e6;        /* 边框灰 */
+    --wb-shadow: 0 1px 3px rgba(0, 0, 0, .06);  /* 卡片轻阴影 */
+    --wb-radius: 6px;            /* 通用圆角 */
+}
+
+/* ---------- 3. 顶部导航（原 header.css，已美化） ---------- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 1000px;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-top: 3px solid var(--wb-orange);
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+
+.nav .null { width: 4%; }
+
+.nav-left {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.logo-image {
+    height: 32px;
+    margin: 0 16px 0 6%;
+}
+
+.left-input {
+    flex: 1;
+    height: 32px;
+    max-width: 280px;
+    padding: 0 12px;
+    border: 1px solid var(--wb-border);
+    border-radius: 16px;
+    background-color: #f5f6f7;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.left-input:focus { border-color: var(--wb-orange); }
+
+.nav-center {
+    width: auto;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.nav-center li {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 14px;
+    text-align: center;
+}
+
+.nav-center li.divider {
+    color: #ddd;
+    padding: 0 4px;
+}
+
+.center-item_link {
+    color: #333;
+    font-size: 14px;
+    display: inline-block;
+    height: 50px;
+}
+
+.center-item_link:hover {
+    color: var(--wb-orange);
+    border-bottom: 2px solid var(--wb-orange);
+}
+
+/* 导航右侧注册/登录入口 */
+.right-span, .right-two {
+    color: var(--wb-orange);
+}
+
+/* ---------- 4. 通用卡片 / 面板 ---------- */
+.card {
+    background-color: var(--wb-card);
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--wb-border);
+    margin-bottom: 12px;
+}
+
+/* 内容主体容器，统一居中限宽 */
+.container {
+    width: 1000px;
+    margin: 70px auto 40px;
+}
+
+/* ---------- 5. 按钮 ---------- */
+.btn,
+.safe-btn-send,
+.btn_hf,
+.btn_yc {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+/* 主按钮：橙色实心 */
+.btn-primary,
+.safe-btn-send {
+    background-color: var(--wb-orange);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.safe-btn-send:hover {
+    background-color: var(--wb-orange-light);
+    color: #fff;
+}
+
+/* 粉丝/关注列表里的小按钮 */
+.btn_hf {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid var(--wb-orange);
+    color: var(--wb-orange);
+    background-color: #fff;
+}
+
+.btn_hf:hover {
+    background-color: var(--wb-orange);
+    color: #fff;
+}
+
+.btn_yc {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid #bbb;
+    color: #888;
+    background-color: #fff;
+}
+
+.btn_yc:hover {
+    border-color: #888;
+    color: #555;
+}
+
+/* ---------- 6. 表单 / 输入框 ---------- */
+.form-input,
+.li-txt,
+.right-input,
+.right-table-tdd-input {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color .2s;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-input:focus,
+.li-txt:focus,
+.right-input:focus,
+.right-table-tdd-input:focus { border-color: var(--wb-orange); }
+
+/* ---------- 7. 微博信息流（原 k.css / boy2.css 整理） ---------- */
+/* 发微博框 */
+.post-box {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.post-box textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+}
+
+.post-box textarea:focus { border-color: var(--wb-orange); }
+
+.post-actions {
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* 信息流筛选标签 */
+.feed-tabs {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 16px;
+}
+
+.feed-tabs ul {
+    display: flex;
+}
+
+.feed-tabs li {
+    padding: 0 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.feed-tabs li a { color: #666; }
+.feed-tabs li a:hover { color: var(--wb-orange); }
+
+/* 单条微博卡片 */
+.news-time {
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    overflow: hidden;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+.news-time-img {
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.news-time-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.news-time-text {
+    flex: 1;
+    padding: 2px 0;
+    word-break: break-all;
+}
+
+.news-time-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--wb-orange);
+    margin-bottom: 4px;
+}
+
+.news-time-time {
+    font-size: 12px;
+    color: var(--wb-text-gray);
+}
+
+/* 转发/评论/赞 操作栏 */
+.zfplz {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 44px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.zfplz-item {
+    line-height: 44px;
+    text-align: center;
+}
+
+.zfplz-item img {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.zfplz-item span {
+    font-size: 13px;
+    color: #666;
+    margin-left: 4px;
+    position: relative;
+    top: -2px;
+}
+
+/* ---------- 8. 右侧栏：热搜 / 粉丝卡 ---------- */
+.boy-right,
+.body-right {
+    width: 25%;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.boy-right h3,
+.body-right > span {
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.boy-right ul li,
+.body-right ul li {
+    padding: 8px 4px;
+    border-bottom: 1px dashed #f0f0f0;
+}
+
+.boy-right ul li a {
+    font-size: 13px;
+    color: #555;
+}
+
+.boy-right ul li a:hover { color: var(--wb-orange); }
+
+.zz {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--wb-orange);
+    margin-right: 6px;
+}
+
+/* ---------- 9. 个人主页 / 粉丝 / 关注 共用三栏布局 ---------- */
+section {
+    background-image: url(../images/300cbdb91cb0d813847e4c2f898eccf3.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 360px;
+    background-position: top center;
+    background-color: var(--wb-bg);
+    padding-top: 50px;
+    min-height: calc(100vh - 50px);
+}
+
+.page-body {
+    width: 1000px;
+    margin: 70px auto 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.body-left,
+.fans-left {
+    width: 180px;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 12px 0;
+    flex-shrink: 0;
+}
+
+.left-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 16px 12px;
+    color: #333;
+}
+
+.left-item {
+    height: 42px;
+    line-height: 42px;
+}
+
+.left-item:hover { background-color: #fafafa; }
+
+.left-item-link {
+    display: block;
+    color: #555;
+    padding-left: 24px;
+    font-size: 14px;
+}
+
+.left-item-link:hover,
+.left-item-link.active {
+    color: var(--wb-orange);
+    background-color: #fff7f0;
+    border-left: 3px solid var(--wb-orange);
+}
+
+/* 中间内容区 */
+.body-center,
+.fans-center {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 粉丝/关注列表项 */
+.fans-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    transition: box-shadow .2s;
+}
+
+.fans-list:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.fans-list img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.fans-list ul {
+    flex: 1;
+}
+
+.fans-list ul li {
+    height: 22px;
+    line-height: 22px;
+}
+
+.center-list {
+    padding: 10px 0 14px;
+}
+
+.center-list .list-item {
+    color: #555;
+    font-size: 14px;
+}
+
+/* ---------- 10. 设置 / 账号安全页 ---------- */
+.safe-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.safe-left {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.safe-right {
+    width: 680px;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 24px;
+}
+
+.safe-null { display: none; }
+
+.shezhi_ul {
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 12px 0;
+    line-height: 42px;
+}
+
+.shezhi {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px 16px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 6px;
+}
+
+.one_li {
+    display: block;
+    padding-left: 24px;
+    color: #555;
+}
+
+.one_li:hover { color: var(--wb-orange); }
+
+.left-dll {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.left-dll img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #f0f0f0;
+}
+
+/* 编辑资料表单（原 zhuce.css 整理） */
+.set-one {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 0;
+    float: none;
+}
+
+.set-two {
+    width: 680px;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 24px 28px;
+}
+
+.set-two ul { padding: 0; }
+
+.zhanghao_li {
+    margin-top: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.zhanghao_li .li-txt {
+    width: 360px;
+    height: 38px;
+    margin-left: 12px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+}
+
+.zhanghao_img {
+    text-align: center;
+    margin: 10px 0 24px;
+}
+
+.zhanghao_img img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #f0f0f0;
+}
+
+.geren {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+}
+
+/* 账号安全表格 */
+.right-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.right-table-trr { height: 64px; }
+
+.right-table-tdd-title {
+    width: 110px;
+    text-align: right;
+    padding-right: 16px;
+    font-size: 14px;
+    color: #666;
+}
+
+.right-table-tdd-input {
+    width: 320px;
+}
+
+/* ---------- 11. 个人主页封面 + 头像区 ---------- */
+.bg-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--wb-radius) var(--wb-radius) 0 0;
+    display: block;
+}
+
+.messages {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-top: none;
+    border-radius: 0 0 var(--wb-radius) var(--wb-radius);
+    padding: 0 20px 16px;
+}
+
+.bottom-three {
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+    margin-top: 8px;
+}
+
+.three-item {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 18px;
+}
+
+.three-item:hover { border-bottom: 2px solid var(--wb-orange); }
+
+.three-item a.active {
+    color: var(--wb-orange);
+    border-bottom: 2px solid var(--wb-orange);
+    display: inline-block;
+    height: 40px;
+    font-weight: bold;
+}
+
+.fs a { color: #666; }
+.fs a:hover { color: var(--wb-orange); }
+
+/* ---------- 12. 登录 / 注册页（独立全屏布局） ---------- */
+.auth-wrap {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .14) 0%, transparent 42%),
+        radial-gradient(circle at 82% 78%, rgba(255, 255, 255, .10) 0%, transparent 46%),
+        linear-gradient(135deg, #3d6fc4 0%, #2b4a75 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    width: 420px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .18);
+    overflow: hidden;
+}
+
+.auth-card-header {
+    background: linear-gradient(90deg, var(--wb-orange) 0%, #ff8c1a 100%);
+    color: #fff;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.auth-card-header img {
+    height: 44px;
+    margin-bottom: 8px;
+}
+
+.auth-card-header h1 {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.auth-card-body { padding: 32px 36px 36px; }
+
+.auth-field { margin-bottom: 18px; }
+
+.auth-field label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.auth-field label .req { color: #ff4d4f; margin-left: 2px; }
+
+.auth-field input[type=text],
+.auth-field input[type=password],
+.auth-field input[type=email] {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.auth-field input:focus { border-color: var(--wb-orange); }
+
+.auth-captcha {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auth-captcha input { flex: 1; }
+
+.auth-captcha img {
+    height: 42px;
+    width: 100px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-captcha .change-link {
+    color: var(--wb-blue);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0 20px;
+    font-size: 13px;
+}
+
+.auth-options a { color: var(--wb-blue); }
+
+.auth-submit {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--wb-orange);
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.auth-submit:hover { background-color: var(--wb-orange-light); }
+
+.auth-footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #999;
+}
+
+.auth-footer a { color: var(--wb-orange); font-weight: bold; }
+
+.auth-help {
+    width: 260px;
+    margin-left: 40px;
+    color: rgba(255, 255, 255, .9);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.auth-help h3 { font-size: 16px; margin-bottom: 10px; color: #fff; }
+.auth-help li { padding-left: 18px; position: relative; }
+.auth-help li::before { content: "•"; position: absolute; left: 0; }
+
+.auth-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 880px;
+    width: 100%;
+}
+
+/* ---------- 13. 游客首页轮播（原 Default.css / css.css） ---------- */
+.all { width: 100%; }
+
+.boy1 { width: 100%; }
+
+.boy_z1 {
+    width: 1000px;
+    margin: 70px auto 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.boy_left1 {
+    width: 160px;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 8px 0;
+    flex-shrink: 0;
+}
+
+.boy_left1 ul li {
+    padding: 10px 18px;
+    text-align: center;
+}
+
+.boy_left1 ul li a { font-size: 14px; color: #555; }
+
+.boy_left1 ul li:hover { background-color: var(--wb-orange); }
+.boy_left1 ul li:hover a { color: #fff; }
+
+.boy_cent1 {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 轮播图 */
+.box { width: 100%; }
+
+.imgBox {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border-radius: var(--wb-radius);
+    border-top: 2px solid var(--wb-orange);
+    position: relative;
+}
+
+/* 轮播项：图片 + 底部配文，作为整体一起切换 */
+.imgBox .banner-item {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+.imgBox .banner-item:first-child { display: block; }
+
+.imgBox .banner-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 轮播底部配文条（半透明渐变） */
+.banner-cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 26px 16px 12px;
+    background: linear-gradient(to top, rgba(0, 0, 0, .72), rgba(0, 0, 0, 0));
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 游客首页信息流 */
+.news-time1 {
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    height: auto;
+    min-height: 120px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+}
+
+.news-time1:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
+
+.news-time-img1 {
+    flex-shrink: 0;
+    width: 160px;
+    height: 110px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.news-time-img1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-time-text1 {
+    flex: 1;
+    padding: 4px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.news-time-title1 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+/* ---------- 14. 通用工具类 ---------- */
+.text-gray { color: var(--wb-text-gray); }
+.text-orange { color: var(--wb-orange); }
+.text-center { text-align: center; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.hidden { display: none; }
+
+/* 页脚 */
+.site-footer {
+    width: 1000px;
+    margin: 0 auto 30px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+}
+
+/* ---------- 15. 游客首页动态信息流卡片 ---------- */
+/* 轮播、信息流外层 <a> 设为块级，让整卡可点击、图片能撑满 */
+.imgBox > a,
+.boy_cent1 > a,
+.search-result > a {
+    display: block;
+    color: inherit;
+}
+
+/* 信息流分类小标题 */
+.feed-head {
+    margin: 20px 0 6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    border-left: 4px solid var(--wb-orange);
+    padding-left: 10px;
+    line-height: 1.2;
+}
+
+/* 卡片底部元信息行：头像 + 昵称 + 分类 + 时间 + 赞 */
+.nc-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+.nc-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nc-name { color: #555; }
+
+.nc-cat {
+    color: var(--wb-orange);
+    background-color: #fff3e8;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 11px;
+}
+
+.nc-time { color: #aaa; }
+
+.nc-zan {
+    margin-left: auto;
+    color: var(--wb-orange);
+    font-weight: bold;
+}
+
+/* 无数据提示 */
+.feed-empty {
+    display: block;
+    text-align: center;
+    padding: 60px 0;
+    color: #999;
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    margin-top: 14px;
+}
+
+/* 左侧分类当前项高亮 */
+.boy_left1 ul li a.active {
+    color: var(--wb-orange);
+    font-weight: bold;
+}
+
+/* ---------- 16. 搜索页 ---------- */
+.search-page {
+    width: 820px;
+    margin: 80px auto 40px;
+}
+
+.search-head {
+    background-color: #fff;
+    border: 1px solid var(--wb-border);
+    border-radius: var(--wb-radius);
+    box-shadow: var(--wb-shadow);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+
+.search-head h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: #333;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    max-width: 520px;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 40px;
+    padding: 0 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.search-bar input:focus { border-color: var(--wb-orange); }
+
+.search-bar button {
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--wb-orange);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.search-bar button:hover { background-color: var(--wb-orange-light); }
+
+.search-summary {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #888;
+}
+
+.search-summary b { color: var(--wb-orange); }
+
+.search-result .news-time1 { margin-top: 0; margin-bottom: 12px; }
+
+/* 登录后首页信息流里的微博配图 */
+.feed-img {
+    display: block;
+    max-width: 100%;
+    max-height: 320px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* ---------- 17. 顶部搜索框（含搜索按钮） ---------- */
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 300px;
+    margin-left: 10px;
+}
+
+.nav-search .left-input {
+    flex: 1;
+    margin: 0;
+    max-width: none;
+}
+
+.nav-search button {
+    height: 32px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--wb-orange);
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color .2s;
+}
+
+.nav-search button:hover { background-color: var(--wb-orange-light); }
+
+/* ---------- 18. 点赞的“已赞”状态 ---------- */
+.zaned span {
+    color: var(--wb-orange);
+    font-weight: bold;
+}
+
+/* ---------- 19. 微博精选页 ---------- */
+.jx-page {
+    width: 820px;
+    margin: 80px auto 40px;
+}
+
+.jx-head {
+    background: linear-gradient(135deg, #ff7a18 0%, #ff9f45 100%);
+    color: #fff;
+    border-radius: var(--wb-radius);
+    padding: 26px 28px;
+    margin-bottom: 18px;
+    box-shadow: var(--wb-shadow);
+}
+
+.jx-head h2 { font-size: 22px; margin-bottom: 6px; }
+.jx-head p { font-size: 13px; opacity: .92; }
+
+.jx-list > a { display: block; color: inherit; }
+
+/* 榜单序号 */
+.jx-list .news-time1 { position: relative; padding-left: 30px; }
+
+.jx-rank {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    background-color: #c4c4c4;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 6px 0 6px 0;
+    z-index: 2;
+}
+
+.jx-rank-top { background-color: var(--wb-orange); }
+
+/* 左侧菜单 / 分类标签 高亮 */
+.left-item-link.active {
+    color: var(--wb-orange);
+    font-weight: bold;
+}
+
+.feed-tabs ul li a.active {
+    color: var(--wb-orange);
+    font-weight: bold;
+}
+

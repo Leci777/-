@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="All.master.cs" Inherits="WebApplication1.All" %>
+
+<%-- 登录后母版页：带顶部导航 + 内容区 + 页脚
+     原来引了一堆零散 css，现在统一用 site.css，页面专用样式按需保留 --%>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>微博 - 我的首页</title>
+    <link rel="stylesheet" href="css/site.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-- ====== 顶部导航 ====== --%>
+        <div class="nav">
+            <div class="null"></div>
+            <ul class="nav-left">
+                <a href="Index.aspx"><img src="images/logo_tm.png" alt="微博" class="logo-image"></a>
+                <div class="nav-search">
+                    <input type="text" class="left-input" id="navKw" placeholder="搜索微博"
+                        onkeydown="if(event.keyCode==13){doSearch();}" />
+                    <button type="button" onclick="doSearch()">搜索</button>
+                </div>
+            </ul>
+            <div class="null"></div>
+            <ul class="nav-center">
+                <li><a href="Index.aspx" class="center-item_link">我的首页</a></li>
+                <li><a href="Personnel.aspx" class="center-item_link">个人主页</a></li>
+                <li><a href="SetUp.aspx" class="center-item_link">设置</a></li>
+                <li class="divider">|</li>
+                <li><a href="Jingxuan.aspx" class="center-item_link">微博精选</a></li>
+                <li><a href="Guanzhu.aspx" class="center-item_link">发现</a></li>
+            </ul>
+            <div class="null"></div>
+        </div>
+
+        <%-- ====== 内容区（各页面填充） ====== --%>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <%-- ====== 页脚 ====== --%>
+        <div class="site-footer">
+            <p>北京微梦创科网络技术有限公司 &nbsp;|&nbsp; 京ICP备12002058号-2</p>
+            <p>Copyright &copy; 2009-<%=DateTime.Now.Year %> WEIBO &nbsp;&middot;&nbsp; 本站为课程作业演示用途</p>
+        </div>
+    </form>
+    <script type="text/javascript">
+        // 顶部搜索：跳转到搜索页
+        function doSearch() {
+            var el = document.getElementById('navKw');
+            var v = el ? el.value.replace(/^\s+|\s+$/g, '') : '';
+            if (v) location.href = 'Search.aspx?kw=' + encodeURIComponent(v);
+        }
+    </script>
+</body>
+</html>

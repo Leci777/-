@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Glyphicons'; 	
+    src: url('../fonts/glyphicons-regular.eot');
+    src: url('../fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'), 
+           url('../fonts/glyphicons-regular.woff') format('woff'), 
+           url('../fonts/glyphicons-regular.ttf') format('truetype'), 
+           url('../fonts/glyphicons-regular.svg#glyphicons_halflingsregular') format('svg');
+   
+}
+.icon{
+    display: inline-block;
+    -webkit-font-smooothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    position: relative;
+    top: 1px;
+    line-height: 1px;
+    font-weight: normal;
+    font-style: normal;
+}
+.icon-home:before{
+    font-family: Glyphicons;
+    content: "\e021";
+}
+.icon-vcard:before{
+    font-family: Glyphicons;
+    content: "\e265";
+}
+.icon-conversation:before{
+    font-family: Glyphicons;
+    content: "\e245";
+}
+.icon-settings:before{
+    font-family: Glyphicons;
+    content: "\e281";
+}
+.icon-user:before{
+    font-family: Glyphicons;
+    content: "\e004";
+}
