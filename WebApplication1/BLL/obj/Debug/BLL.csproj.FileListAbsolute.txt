@@ -207,3 +207,14 @@ E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\BLL\obj\Debug\BL
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\BLL\obj\Debug\BLL.dll
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\BLL\obj\Debug\BLL.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\BLL.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\BLL.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\DAL.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\Models.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\DAL.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\bin\Debug\Models.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\obj\Debug\BLL.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\BLL\obj\Debug\BLL.pdb

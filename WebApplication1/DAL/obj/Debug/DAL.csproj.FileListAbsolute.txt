@@ -165,3 +165,12 @@ E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\DAL\obj\Debug\DA
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\DAL\obj\Debug\DAL.dll
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\DAL\obj\Debug\DAL.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\bin\Debug\DAL.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\bin\Debug\DAL.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\bin\Debug\Models.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\bin\Debug\Models.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\obj\Debug\DAL.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\DAL\obj\Debug\DAL.pdb

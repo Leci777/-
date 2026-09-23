@@ -40,3 +40,9 @@ E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\Models\obj\Debug
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\Models\obj\Debug\Models.dll
 E:\cpdd\项目\大二项目\websys\5.6\1234\目\WebApplication1\Models\obj\Debug\Models.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\bin\Debug\Models.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\bin\Debug\Models.pdb
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\obj\Debug\Models.dll
+E:\cpdd\项目\大二项目\websys\WbSys\WebApplication1\Models\obj\Debug\Models.pdb
